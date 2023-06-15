@@ -39,7 +39,7 @@ class Member{
 class Menu {
 	public:
 		Menu(){
-
+			
 		}
 	    void showMenu() {
 	        cout << "\n================DAFTAR MENU================\n";
@@ -63,12 +63,12 @@ class Order : public Member {
 	    static int a;
 	    static long int total_pembayaran;
 	    bool finish = false;
-
+	
 	public:
 	    Order() {
 	        cout << "\nRestoran Pak Wasil, Murah, Enak dan Bersahabat \n";
 	    }
-
+	
 	    void ord() {
 	    	Menu menu;
 		    menu.showMenu();
@@ -77,7 +77,7 @@ class Order : public Member {
 	        while (finish == false) {
 	            cout << "Pilih menu : ";
 	            cin >> pilih[a];
-
+	
 	            if (pilih[a] <= 6) {
 	                if (pilih[a] == 0) {
 	                    finish = true;
@@ -112,11 +112,11 @@ class Order : public Member {
 	                        default:
 	                            break;
 	                    }
-
+	
 	                    cout << "Total porsi " << sub[a] << " : ";
 	                    cin >> jumlah[a];
 	                    cout << endl;
-
+	
 	                    total_sub_menu[a] = jumlah[a] * harga[a];
 	                    total_pembayaran = total_pembayaran + total_sub_menu[a];
 	                    a++;
@@ -124,12 +124,8 @@ class Order : public Member {
 	            } else {
 	                cout << "Maaf nomor yang Anda masukkan salah\n\n";
 	            }
-
 	        }
 	    }
-        ~Order(){
-	                cout <<"sudah dihapus"<< endl;
-	            }
 };
 
 int Order::a = 0;
@@ -139,7 +135,7 @@ class Nota : public Order {
 	public:
 	    void tampilkanNota() {
 	    	int id;
-	        cout <<endl<< "Masukkan ID member apabila Anda memilikinya\n serta masukkan 0 jika tidak memilikinya\n";
+	        cout << "Masukkan ID member apabila Anda memilikinya\n serta masukkan 0 jika tidak memilikinya\n";
 	        cout << "Id Member : ";
 	        cin >> id;
 	        cout << "===========================NOTA PEMBELIAN==================================\n";
@@ -150,19 +146,13 @@ class Nota : public Order {
 	            cout << i + 1 << "\t" << sub[i] << "\t\t" << harga[i] << "\t\t" << jumlah[i] << "\t\t" << total_sub_menu[i] << endl;
 	        }
 	        cout << endl;
-	        cout << "Harga Sebelum Diskon = Rp."<<total_pembayaran<<endl;
-
 	        for (int i = 0; i < 4; i++) {
 	                if (id == biodata[i].id) {
 	                total_pembayaran = total_pembayaran*90/100;
 	            }
 	        }
 	        cout << "---------------------------------------------------------------------------\n";
-	        cout << "Total Pembayaran Akhir = Rp." << total_pembayaran << endl;
-	    }
-	    ~Nota(){
-	        delete[]sub;
-	        cout<<"Total Pembayaran sudah selesai dan dihapus";
+	        cout << "Total Pembayaran = Rp." << total_pembayaran << endl;
 	    }
 };
 
@@ -220,5 +210,5 @@ int main() {
         }
     }
 
-return 0;
+    return 0;
 }
