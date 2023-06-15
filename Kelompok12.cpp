@@ -5,8 +5,8 @@ using namespace std;
 
 struct bio{
     int id;
-    string nama;
-    string tlp;
+    const char* nama;
+    char* tlp;
 };
 
 class Member{
@@ -58,7 +58,7 @@ class Menu {
 
 class Order : public Member {
 	protected:
-	    string sub[50];
+	    char* sub[50];
 	    int pilih[50], jumlah[50], total_sub_menu[50], harga[50];
 	    static int a;
 	    static long int total_pembayaran;
