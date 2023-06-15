@@ -63,6 +63,7 @@ class Order : public Member {
 	    static int a;
 	    static long int total_pembayaran;
 	    bool finish = false;
+
 	
 	public:
 	    Order() {
